@@ -1,0 +1,70 @@
+body {
+  text-align: center;
+  padding-bottom: 30px;
+  background: url('http://www.cartoonswallpapers.net/wallpapers/alice-wonderland-movie-wallpaper-pc.jpg')no-repeat center center fixed;
+  background-size: cover;
+  /* height: 100%; */
+  color: #f4f0f4;
+  font-family: 'Merienda', cursive;
+} 
+
+header {
+  top: 0;
+  text-shadow: 2px 2px black;
+  background-color: rgb(109,78,109, .7);
+  min-height: 60px;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  padding-top: 5px;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 10px
+}
+
+main {
+  padding-top: 40px;
+}
+
+ .searchForm {
+  padding-bottom: 20px;
+ }
+
+.searchInput {
+  padding: 5px;
+  font-size: 20px;
+  color: #273616;
+
+}
+
+button {
+  font-size: 20px;
+  padding: 5px;
+  margin: 10px;
+  color: #f4f0f4;
+  background-color:  #9ac46e;
+  border: 1px solid #9ac46e;
+  text-shadow: 1px 1px black;
+}
+
+button:hover {
+  background-color: #466228;
+   border: 1px solid #466228;
+}
+
+div {
+  display: block;
+}
+
+img {
+  width: 100%;
+  border: 2px solid rgb(109,78,109);
+}

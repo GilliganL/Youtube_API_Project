@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="description" content="Go down the Youtube Rabbit Hole and see where you end up.">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Youtube Rabbit Hole</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="float-grid.css">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+	</head>
+  <body>
+    <header role="banner">
+           <div class="row">
+           <div class="col-12 heading">
+             <h1>Enter the Rabbit Hole</h1>
+             <h2 class='searchDisplay'></h2>
+           </div>
+         </div>
+    </header>
+   <main role="main"> 
+      <form class="nextForm"></form>
+      <div class="searchResults"></div>
+      <div class="row">
+        <div class="col-12">
+          <form class="searchForm">
+            <label for="searchInput"></label>
+            <input type="text" class="searchInput" placeholder="Search Youtube" required></input>
+            <button type="submit" onclick="location.href='#top'">Search</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="index.js"></script>
+<script src="datastore.js"></script>
+</html>
