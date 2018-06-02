@@ -39,7 +39,7 @@ if (index < 2) {
   return `<div class='col-6'>
             
               <a href='https://www.youtube.com/watch?v=${item.id.videoId}' target="_blank">
-              <img src=${item.snippet.thumbnails.medium.url} alt='preview image of ${item.snippet.title} video from Youtube'>
+              <img src=${item.snippet.thumbnails.medium.url} alt="thumbnail for ${item.snippet.title}">
               </a>
           </div>`;
 } else {
@@ -48,7 +48,7 @@ if (index < 2) {
    return `<div class='col-4'>
             
               <a href='https://www.youtube.com/watch?v=${item.id.videoId}' target="_blank">
-              <img src=${item.snippet.thumbnails.medium.url} alt='preview image of ${item.snippet.title} video from Youtube'>
+              <img src=${item.snippet.thumbnails.medium.url} alt="thumbnail for ${item.snippet.title}">
               </a>
           </div>`;
 }
@@ -56,11 +56,15 @@ if (index < 2) {
 
 function displayResults(youtubeResults) {
 //map array to create results and insert
+
+const totalCount = youtubeResults.pageInfo.totalResults;
+
+$('.searchDisplay').prepend(totalCount + ' ');
   const displayArray = youtubeResults.items.map((item, index) => renderSearchResults(item, index));
   nextPageToken = youtubeResults.nextPageToken;
   console.log(nextPageToken);
-  $('.searchResults').html('<div class=\'row\'>' + displayArray[0] + displayArray[1] + '</div><div class=\'row\'>' + displayArray[2] + displayArray[3] + displayArray[4] + '</div>');
-  $('.nextForm').html('<button type="submit" id="nextPageButton">More >>></button>');
+  $('.searchResults').prop('hidden', false).html('<div class=\'row\'>' + displayArray[0] + displayArray[1] + '</div><div class=\'row\'>' + displayArray[2] + displayArray[3] + displayArray[4] + '</div>');
+  $('.nextForm').prop('hidden', false).html('<button type="submit" id="nextPageButton">More >>></button>');
   console.log('displayResults ran');
 }
 
@@ -70,6 +74,7 @@ function displayMoreResults(youtubeResults) {
   nextPageToken = youtubeResults.nextPageToken;
   prevPageToken = youtubeResults.prevPageToken;
   console.log(nextPageToken + ' & ' + prevPageToken);
+
   $('.searchResults').html('<div class=\'row\'>' + displayArray[0] + displayArray[1] + '</div><div class=\'row\'>' + displayArray[2] + displayArray[3] + displayArray[4] + '</div>');
   if (prevPageToken !== undefined){
   $('.nextForm').html('<button type="submit" id="prevPageButton"><<< Prev</button><button type="submit" id="nextPageButton">More >>></button>');
@@ -103,11 +108,12 @@ function handleSearch() {
     delete query.pageToken;
     nextPageToken = null;
     prevPageToken = null;
-   
     const userInput = $(event.currentTarget).find('.searchInput');
     const searchFor = userInput.val();
+
      $('.searchDisplay').html(searchFor + ' videos');
     console.log(searchFor);
+
     userInput.val('');
     getDataFromApi(searchFor, displayResults);
   });

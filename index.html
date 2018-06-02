@@ -10,29 +10,32 @@
     <link rel="stylesheet" type="text/css" href="float-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
 	</head>
-  <body>
-    <header role="banner">
-           <div class="row">
-           <div class="col-12 heading">
-             <h1>Enter the Rabbit Hole</h1>
-             <h2 class='searchDisplay'></h2>
-           </div>
-         </div>
+	<body>
+		<header role="banner">
+      <div class="row">
+      <div class="col-12 heading">
+        <h1>Enter the Rabbit Hole</h1>
+        <h2 class='searchDisplay' aria-live="polite">What will you find?</h2>
+      </div>
+      </div>
     </header>
-   <main role="main"> 
-      <form class="nextForm"></form>
-      <div class="searchResults"></div>
+		<main role="main">
       <div class="row">
         <div class="col-12">
           <form class="searchForm">
-            <label for="searchInput"></label>
-            <input type="text" class="searchInput" placeholder="Search Youtube" required></input>
+            <label for="searchInput" class="searchLabel">
+              Search Youtube
+            <input type="text" class="searchInput" placeholder="Ex. Cheshire Cat" required></input>
             <button type="submit" onclick="location.href='#top'">Search</button>
+            </label>
           </form>
         </div>
       </div>
+      <div class="searchResults" aria-live="assertive" ></div>
+      <form class="nextForm" aria-live="polite" hidden></form>
     </main>
-  </body>
+	</body>
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="index.js"></script>
 <script src="datastore.js"></script>
